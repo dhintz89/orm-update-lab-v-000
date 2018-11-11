@@ -63,8 +63,8 @@ class Student
     sql = <<-SQL
     SELECT * FROM students WHERE name = ?
     SQL
-    
-    Student.new_from_db(1, "Josh", "10th")
+    row = [1, "Josh", "10th"]
+    Student.new_from_db(row)
   end
 
 end
