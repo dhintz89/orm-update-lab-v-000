@@ -38,7 +38,7 @@ class Student
       self.update
     else
       DB[:conn].execute(sql, self.name, self.grade)
-      @id = DB[:conn].execute("SELECT id FROM students WHERE name=?",self.name)[0][0]
+      @id = DB[:conn].execute("SELECT id FROM students WHERE name = ?",self.name)[0][0]
     end
   end
   
