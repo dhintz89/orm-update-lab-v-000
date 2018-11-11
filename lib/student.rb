@@ -34,11 +34,15 @@ class Student
     INSERT INTO students (name, grade) VALUES (?, ?)
     SQL
     
-    DB[:conn].execute(sql, self.name, self.grade)
-    @id = DB[:conn].execute("SELECT id FROM students WHERE name=?",self.name)
+    if self.id
+      self.update
+    else
+      DB[:conn].execute(sql, self.name, self.grade)
+      @id = DB[:conn].execute("SELECT id FROM students WHERE name=?",self.name)
+    end
   end
   
-  def update(student)
+  def update
     sql <<-SQL
     UPDATE students SET name = ?, grade = ? WHERE id = ?
     SQL
