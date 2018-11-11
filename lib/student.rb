@@ -38,7 +38,7 @@ class Student
   
   def update(student)
     sql <<-SQL
-    UPDATE students SET name, 
+    UPDATE students SET name, grade
   
   def self.new_from_db(row)
     Student.new(id: row[0], name: row[1], grade: row[3])
