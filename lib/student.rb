@@ -1,4 +1,5 @@
 require_relative "../config/environment.rb"
+require pry
 
 class Student
   attr_accessor :name, :grade
@@ -61,6 +62,7 @@ class Student
   
  def self.find_by_name(name)
    row = DB[:conn].execute("SELECT * FROM students WHERE name = ?", name)
+   binding.pry
    Student.new_from_db(row)
  end
 
