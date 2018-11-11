@@ -1,8 +1,8 @@
 require_relative "../config/environment.rb"
 
 class Student
-  attr_accessor :name, :grade, :id
-  attr_reader 
+  attr_accessor :name, :grade
+  attr_reader :id
 
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
@@ -64,7 +64,7 @@ class Student
     SELECT * FROM students WHERE name = ?
     SQL
     
-    student = Student.new_from_db(DB[:conn].execute(sql, name))
+    Student.new_from_db(DB[:conn].execute(sql, name))
   end
 
 end
