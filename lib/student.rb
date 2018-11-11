@@ -63,7 +63,7 @@ class Student
     sql = <<-SQL
     SELECT * FROM students WHERE name = ?
     SQL
-    row = [1, "Josh", "10th"]
+    row = DB[:conn].execute(sql, name)
     Student.new_from_db(row)
   end
 
